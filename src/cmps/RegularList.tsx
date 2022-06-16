@@ -1,18 +1,25 @@
 import React, { ReactElement } from 'react'
 
-interface IPepole{
-    
+interface IPerson{
         name: string,
         age: number,
-        hairColor: string, 
-        hobbies: string[]
-    
-  }
+        hairColor?: string, 
+        hobbies?: string[]
+}
+
+interface IProduct{
+
+    name: string,
+    price: string,
+    description?: string,
+    rating?: number
+  
+}
 
 interface IRegularList{
-    items: IPepole[],
+    items: IPerson[] | IProduct[],
     resourceName: string,
-    itemComponent: any
+    itemComponent: (props :any) => JSX.Element
 }
 
 const RegularList = ({

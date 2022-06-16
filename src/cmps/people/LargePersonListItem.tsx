@@ -1,15 +1,15 @@
 import React from 'react'
 
-interface ILargePerson{
+interface IPerson{
     person:{
         name: string,
         age: string,
-        hairColor: string, 
-        hobbies: string[]
+        hairColor?: string, 
+        hobbies?: string[]
     }
   }
 
-export const LargePersonListItem = ({person}: ILargePerson) => {
+export const LargePersonListItem = ({person}: IPerson) => {
   const { name, age, hairColor, hobbies } = person
   return (
     <>
@@ -18,7 +18,7 @@ export const LargePersonListItem = ({person}: ILargePerson) => {
         <p>Hair Color: {hairColor}</p>
         <h3>Hobbies:</h3>
         <ul>
-            {hobbies.map( hobby => <li key={hobby}>{hobby}</li>)}
+            {hobbies!.map( hobby => <li key={hobby}>{hobby}</li>)}
         </ul>
     </>
   )
