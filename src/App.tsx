@@ -1,6 +1,7 @@
 
 import './App.css';
 import { SplitScreen } from './cmps/layout-cmp/SplitScreen';
+import { Modal } from './cmps/Modal';
 import { NumberedList } from './cmps/NumberedList';
 import { LargePersonListItem } from './cmps/people/LargePersonListItem';
 import { SmallPersonListItem } from './cmps/people/SmallPersonListItem';
@@ -48,29 +49,9 @@ const Right = ({ message }: { message: string }) => <p style={{ 'backgroundColor
 function App() {
   return (
     <>
-      <RegularList
-        items={people}
-        resourceName='person'
-        itemComponent={SmallPersonListItem}
-      />
-
-      <NumberedList
-        items={people}
-        resourceName='person'
-        itemComponent={LargePersonListItem}
-      />
-
-      <RegularList
-        items={products}
-        resourceName='product'
-        itemComponent={SmallProductListItem}
-      />
-
-      <NumberedList
-        items={products}
-        resourceName='product'
-        itemComponent={LargeProductListItem}
-      />
+      <Modal>
+        <LargeProductListItem product={products[0]} />
+      </Modal>
 
 
     </>
