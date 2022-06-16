@@ -11,26 +11,25 @@ const Pane = styled.div<IPaneProps>`
 flex: ${p => p.weight};
 `
 interface IProps{
-    left: FC,
-    right: FC,
+    children: React.ReactNode[],
     leftWeight: number,
     rightWeight: number
 
 }
 
 export const SplitScreen =  ({
-    left: Left,
-    right: Right,
+    children,
     leftWeight = 1,
     rightWeight = 1
 }:IProps): JSX.Element => {
+    const [ left, right ] = children;
     return(
         <Container>
             <Pane weight={leftWeight}>
-                <Left />
+                {left}
             </Pane>
             <Pane weight={rightWeight}>
-                <Right />
+            {right}
             </Pane>
         </Container>
     )
