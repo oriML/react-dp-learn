@@ -1,0 +1,25 @@
+export interface IUser{
+    user: {
+		id: number,
+        name: string
+        age: number
+        hairColor: string
+        hobbies: string[]
+    }
+}
+
+export const UserInfo = ({ user }: IUser | any) => {
+	const { name, age, hairColor, hobbies } = user || {};
+
+	return user? (
+		<>
+		<h3>{name}</h3>
+		<p>Age: {age} years</p>
+		<p>Hair Color: {hairColor}</p>
+		<h3>Hobbies:</h3>
+		<ul>
+			{hobbies.map((hobby: string) => <li key={hobby}>{hobby}</li>)}
+		</ul>
+		</>
+	) : <p>Loading...</p>;
+}
