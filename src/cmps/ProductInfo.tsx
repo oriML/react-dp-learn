@@ -9,10 +9,10 @@ export interface IProduct{
 }
 
 
-export const ProductInfo = ({ product }: IProduct) => {
-	const { name, price, description, rating } = product;
+export const ProductInfo = ({ product }: IProduct | any) => {
+	const { name, price, description, rating } = product || {};
 
-	return (
+	return product ?(
 		<>
 		<h3>{name}</h3>
 		<p>{price}</p>
@@ -20,5 +20,5 @@ export const ProductInfo = ({ product }: IProduct) => {
 		<p>{description}</p>
 		<p>Average Rating: {rating}</p>
 		</>
-	);
+	) : <p>Loading product...</p>;
 }
